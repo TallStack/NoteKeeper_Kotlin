@@ -6,26 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
+    <EditText
+        android:id="@+id/txtNoteText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/NoteText"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerCourses"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/spinnerCourses"
+        app:layout_constraintTop_toBottomOf="@+id/txtNoteTitle" />
+
     <Button
         android:id="@+id/button_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="184dp"
         android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtValue" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/txtValue"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/spinnerCourses"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/one"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@id/button_first"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtNoteTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/NoteTitle"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerCourses"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/spinnerCourses"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCourses" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

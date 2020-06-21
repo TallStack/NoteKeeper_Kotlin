@@ -6,6 +6,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.fragment_first.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,14 +17,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            val myValue = txtValue.text.toString().toInt()
-            val newValue = myValue * 2
-            txtValue.text = newValue.toString()
-            Snackbar.make(view, "Value $myValue changed to $newValue",
-                Snackbar.LENGTH_LONG).show()
-
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
