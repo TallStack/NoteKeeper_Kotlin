@@ -1,6 +1,5 @@
 package com.example.notekeeper_kotlin
 
-import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
-import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_first.*
 
@@ -34,7 +32,7 @@ class FirstFragment : Fragment() {
 
 
        val getContext = (context as MainActivity)
-        notePosition = getContext.intent.getIntExtra(EXTRA_NOTE_POSITION, POSITION_NOT_SET)
+        notePosition = getContext.intent.getIntExtra(NOTE_POSITION, POSITION_NOT_SET)
 
         if(notePosition != POSITION_NOT_SET)
             displayNote()

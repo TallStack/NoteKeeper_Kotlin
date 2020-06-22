@@ -1,13 +1,10 @@
 package com.example.notekeeper_kotlin
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
 import kotlinx.android.synthetic.main.content_note_list.*
 
 class NoteListActivity : AppCompatActivity() {
@@ -27,7 +24,7 @@ class NoteListActivity : AppCompatActivity() {
 
         listNotes.setOnItemClickListener{parent, view, position, id ->
             val activityIntent = Intent(this,MainActivity::class.java)
-            activityIntent.putExtra(EXTRA_NOTE_POSITION, position)
+            activityIntent.putExtra(NOTE_POSITION, position)
             startActivity(activityIntent)
         }
     }
