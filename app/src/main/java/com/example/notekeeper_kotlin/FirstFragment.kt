@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.fragment_first.*
 
 class FirstFragment : Fragment() {
 
+    private var notePosition = POSITION_NOT_SET
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -25,14 +26,29 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val dm = DataManager()
+
         val adapterCourses = ArrayAdapter<CourseInfo> (this.requireActivity(), android.R.layout.simple_spinner_item,
-            dm.courses.values.toList())
+            DataManager.courses.values.toList())
         adapterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCourses.adapter = adapterCourses
 
+
+       val getContext = (context as MainActivity)
+        notePosition = getContext.intent.getIntExtra(EXTRA_NOTE_POSITION, POSITION_NOT_SET)
+
+        if(notePosition != POSITION_NOT_SET)
+            displayNote()
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+    }
+
+    private fun displayNote() {
+        val note = DataManager.notes[notePosition]
+        txtNoteText.setText(note.text)
+        txtNoteTitle.setText(note.title)
+
+        val coursePosition = DataManager.courses.values.indexOf(note.course)
+        spinnerCourses.setSelection(coursePosition)
     }
 }
